@@ -1,0 +1,90 @@
+* {
+    box-sizing: border-box;
+    padding: 0 0.8rem;
+    margin: 0;
+    font-family: Helvetica;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(09, 123, 182);
+    width: 80%;
+    margin: auto;
+    margin-top: 2%;
+
+}
+
+.img-logo {
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px 0 0 0;
+}
+
+.img-logo img {
+    width: 20%;
+    height: 10%;
+    padding:0 0;
+    border-radius: 2px;
+}
+
+.title {
+    display: flex;
+    justify-content: flex-start;
+    padding: 2rem 0 4rem;
+}
+.title h1 {
+   color: rgb(27, 19, 91);
+   background-color: #fff;
+   border-radius: 2px;
+}
+
+.new-sort {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 0;
+}
+
+.new-sort button{
+    color: #fff;
+    border: none;
+    background-color: #428fdc;
+    font-size: 10px;
+    padding: 7px 11px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.name-sort {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.name-sort h3 {
+   
+
+}
+.name-sort input {
+    border: 1px solid rgb(20, 20, 20);
+    padding: 4px 2px 4px 30px;
+    border-radius: 3px;
+    background-color: rgb(255, 255, 255);
+    opacity: 0.7;
+    color: rgb(16, 2, 73);
+
+}
+.avancar-sort{
+    display: flex;
+    justify-content: flex-end;
+    padding: 8px 0 50px 0;
+}
+.avancar-sort button{
+    color: #fff;
+    border: none;
+    background-color: #428fdc;
+    font-size: 10px;
+    padding: 7px 22px;
+    border-radius: 3px;
+    cursor: pointer;
+}
