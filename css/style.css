@@ -3,13 +3,30 @@
     padding: 0 0.8rem;
     margin: 0;
     font-family: Helvetica;
+    
 }
+.teste{
+    background: rgb(0, 123, 255);
+    height: 92vh;
+    min-width: 410px;
+    width: 60%;
+    content: "";
+    position: absolute;
+    left: -12%;
+    border-radius: 82% / 60% 90% 70% 10%;
+    z-index: -1;
+    animation: 18s ease-in-out 0s infinite normal none running wobble;
 
+}
+.teste img{
+    position: relative;
+    left: 16%;
+    top: -16%;
+}
 .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: rgb(09, 123, 182);
     width: 80%;
     margin: auto;
     margin-top: 2%;
@@ -23,8 +40,7 @@
 }
 
 .img-logo img {
-    width: 20%;
-    height: 10%;
+    width: 100%;
     padding:0 0;
     border-radius: 2px;
 }
@@ -38,9 +54,11 @@
    color: rgb(27, 19, 91);
    background-color: #fff;
    border-radius: 2px;
+   font-size: 30px;
+   font-family: cursive;
 }
 
-.new-sort {
+/* .new-sort {
     display: flex;
     justify-content: flex-end;
     padding-right: 0;
@@ -54,18 +72,25 @@
     padding: 7px 11px;
     border-radius: 3px;
     cursor: pointer;
-}
+} */
 
 .name-sort {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+    display: grid;
+    justify-content:end;
 }
-.name-sort h3 {
-   
-
+.caixa{
+    display: grid;
+    gap: 8px;
+    padding: 30px 20px;
+    border-radius: 5px;
+    box-shadow: rgb(219 219 219) 4px 1px 17px -5px;
+    max-width: 350px;
+    min-width: 330px;
 }
-.name-sort input {
+.caixa h6 {
+    padding-left: 0;
+}
+.caixa input {
     border: 1px solid rgb(20, 20, 20);
     padding: 4px 2px 4px 30px;
     border-radius: 3px;
@@ -74,12 +99,7 @@
     color: rgb(16, 2, 73);
 
 }
-.avancar-sort{
-    display: flex;
-    justify-content: flex-end;
-    padding: 8px 0 50px 0;
-}
-.avancar-sort button{
+.caixa button{
     color: #fff;
     border: none;
     background-color: #428fdc;
@@ -88,3 +108,8 @@
     border-radius: 3px;
     cursor: pointer;
 }
+/* .avancar-sort{
+    display: flex;
+    justify-content: flex-end;
+    padding: 8px 0 50px 0;
+} */
