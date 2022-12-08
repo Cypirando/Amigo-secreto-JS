@@ -1,61 +1,58 @@
 * {
-    box-sizing: border-box;
-    padding: 0 0.8rem;
-    margin: 0;
-    font-family: Helvetica;
-    
+  box-sizing: border-box;
+  padding: 0 0.8rem;
+  margin: 0;
+  font-family: Helvetica;
 }
-.teste{
-    background: rgb(0, 123, 255);
-    height: 92vh;
-    min-width: 410px;
-    width: 60%;
-    content: "";
-    position: absolute;
-    left: -12%;
-    border-radius: 82% / 60% 90% 70% 10%;
-    z-index: -1;
-    animation: 18s ease-in-out 0s infinite normal none running wobble;
-
+.teste {
+  background: rgb(0, 123, 255);
+  height: 92vh;
+  min-width: 410px;
+  width: 60%;
+  content: "";
+  position: absolute;
+  left: -12%;
+  border-radius: 82% / 60% 90% 70% 10%;
+  z-index: -1;
+  animation: 18s ease-in-out 0s infinite normal none running wobble;
 }
-.teste img{
-    position: relative;
-    left: 16%;
-    top: -16%;
+.teste img {
+  position: relative;
+  left: 16%;
+  top: -16%;
 }
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 80%;
-    margin: auto;
-    margin-top: 2%;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  margin: auto;
+  margin-top: 2%;
 }
 
 .img-logo {
-    display: flex;
-    justify-content: flex-start;
-    padding: 10px 0 0 0;
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px 0 0 0;
 }
 
 .img-logo img {
-    width: 100%;
-    padding:0 0;
-    border-radius: 2px;
+  width: 100%;
+  padding: 0 0;
+  border-radius: 2px;
 }
 
 .title {
-    display: flex;
-    justify-content: flex-start;
-    padding: 2rem 0 4rem;
+  display: flex;
+  justify-content: flex-start;
+  padding: 2rem 0 4rem;
 }
 .title h1 {
-   color: rgb(27, 19, 91);
-   background-color: #fff;
-   border-radius: 2px;
-   font-size: 30px;
-   font-family: cursive;
+  color: rgb(27, 19, 91);
+  background-color: #fff;
+  border-radius: 2px;
+  font-size: 30px;
+  font-family: cursive;
 }
 
 /* .new-sort {
@@ -75,41 +72,79 @@
 } */
 
 .name-sort {
-    display: grid;
-    justify-content:end;
+  display: grid;
+  justify-content: end;
 }
-.caixa{
-    display: grid;
-    gap: 8px;
-    padding: 30px 20px;
-    border-radius: 5px;
-    box-shadow: rgb(219 219 219) 4px 1px 17px -5px;
-    max-width: 350px;
-    min-width: 330px;
+.caixa {
+  display: grid;
+  gap: 8px;
+  padding: 30px 20px;
+  border-radius: 5px;
+  box-shadow: rgb(219 219 219) 4px 1px 17px -5px;
+  max-width: 350px;
+  min-width: 330px;
 }
 .caixa h6 {
-    padding-left: 0;
+  padding-left: 0;
 }
 .caixa input {
-    border: 1px solid rgb(20, 20, 20);
-    padding: 4px 2px 4px 30px;
-    border-radius: 3px;
-    background-color: rgb(255, 255, 255);
-    opacity: 0.7;
-    color: rgb(16, 2, 73);
-
+  border: 1px solid rgb(20, 20, 20);
+  padding: 4px 2px 4px 30px;
+  border-radius: 3px;
+  background-color: rgb(255, 255, 255);
+  opacity: 0.7;
+  color: rgb(16, 2, 73);
+  padding: 2px 0 3px 5px;
+  font-size: 18px;
 }
-.caixa button{
-    color: #fff;
-    border: none;
-    background-color: #428fdc;
-    font-size: 10px;
-    padding: 7px 22px;
-    border-radius: 3px;
-    cursor: pointer;
+.caixa button {
+  color: #fff;
+  border: none;
+  background-color: #428fdc;
+  font-size: 10px;
+  padding: 5px 22px;
+  border-radius: 3px;
+  font-size: 20px;
+  cursor: pointer;
 }
 /* .avancar-sort{
     display: flex;
     justify-content: flex-end;
     padding: 8px 0 50px 0;
 } */
+
+/*=========== HTML SORTEIO================== */
+.img-bg img{
+    z-index: -1;
+    position: absolute;
+    bottom: 12%;
+}
+.container-sorteio {
+  display: flex;
+  margin: auto;
+  margin-top: 2%;
+}
+.title-sort{
+
+}
+.name-int {
+  display: flex;
+}
+.name-titulo {
+  display: flex;
+  flex-direction: column;
+}
+.name-input {
+    display: flex;
+}
+.box-lista{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 30%;
+    padding-top: 8%;
+
+}
+.list-int {
+    display: flex;
+    justify-content: flex-end;
+}
