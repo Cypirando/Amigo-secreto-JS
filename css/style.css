@@ -44,7 +44,7 @@
 
 .title {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   padding: 2rem 0 4rem;
 }
 .title h1 {
@@ -73,7 +73,7 @@
 
 .name-sort {
   display: grid;
-  justify-content: end;
+  justify-content: center;
 }
 .caixa {
   display: grid;
@@ -121,7 +121,7 @@
     bottom: 12%;
 }
 .container-sorteio {
-  display: flex;
+  display: grid;
   margin: auto;
   margin-top: 2%;
 }
@@ -146,17 +146,39 @@
   box-shadow: rgb(219 219 219) 4px 1px 17px -5px;
   max-width: 550px;
   min-width: 230px;
+  background-color: transparent;
   
 }
 .box-lista{
-    display: flex;
-    justify-content: flex-end;
-    padding-right: 30%;
-    padding-top: 8%;
+  display: grid;
+  padding: 40px;
+  background: rgb(0, 123, 255);
+  max-width: 500px;
+  border-radius: 25px;
 
 }
 .list-int {
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
+}
+
+/* container-final  */
+header{
+  display: grid;
+  justify-items: center;
+}
+.container-final{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  margin: auto;
+  margin-top: 2%;
+  align-items: center;
+}
+
+.nome-do-sorteio{
+  text-transform: uppercase;
+  color: white ;
 }
