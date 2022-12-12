@@ -92,9 +92,9 @@ function renderSorteio() {
   listaOne.innerHTML += sorteados
     .map(
       (i) =>
-        `<div class="name-2"><h3>${i
+        `<div class="caixa-box name-2"><h3>${i
           .toString()
-          .replace(",", " ==> ")}</h3></div>`
+          .replace(",", " &rarr; ")}</h3></div>`
     )
     .join(" ");
 }
