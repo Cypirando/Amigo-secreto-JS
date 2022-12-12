@@ -1,3 +1,6 @@
+document.getElementById("inicio").style.display = "flex";
+document.getElementById("meio").style.display = "grid";
+document.getElementById("final").style.display = "grid";
 
 /*infos de get e post */
 
