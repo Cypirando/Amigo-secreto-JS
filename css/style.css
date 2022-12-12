@@ -133,16 +133,34 @@
   display: flex;
 }
 .name-titulo {
-  border-radius: 82% / 10% 80% 100% 54%;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  /* background-color: white; */
-  /* margin: 5px 20px -85% 5px; */
-  /* padding: 5px 20px 90% 5px; */
+  justify-items: center;
+  display: grid;
 }
 .name-input {
     display: flex;
+}
+.btn-sortear{
+  display: inline-block
+}
+.btn-sortear button{
+  color: #428fdc;
+  border: none;
+  background-color: #fff;
+  font-size: 10px;
+  padding: 5px 22px;
+  border-radius: 3px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.name-titulo  button {
+  color: #428fdc;
+  border: none;
+  background-color: #fff;
+  font-size: 10px;
+  padding: 5px 22px;
+  border-radius: 3px;
+  font-size: 20px;
+  cursor: pointer;
 }
 .caixa-box{
   z-index: 1;
