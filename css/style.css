@@ -189,3 +189,11 @@ header{
   text-transform: uppercase;
   /* color: white ; */
 }
+.name-2{
+  display: flex;
+  justify-content: center;
+}
+.name-2 h3{
+  text-transform: capitalize;
+  font-family:Arial, Helvetica, sans-serif;
+}
