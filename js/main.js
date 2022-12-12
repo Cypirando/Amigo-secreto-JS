@@ -8,6 +8,7 @@ let btnAncancar = document.getElementById('btn-avancar')
 btnAncancar.addEventListener('click', ()=> {
     printNomeDoSorteio.innerHTML = nomeDoSorteio.value
     alert(nomeDoSorteio.value)
+    // ss
     
 }
     
