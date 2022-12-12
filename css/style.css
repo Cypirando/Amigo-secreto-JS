@@ -137,9 +137,9 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  background-color: white;
-  margin: 5px 20px -85% 5px;
-  padding: 5px 20px 90% 5px;
+  /* background-color: white; */
+  /* margin: 5px 20px -85% 5px; */
+  /* padding: 5px 20px 90% 5px; */
 }
 .name-input {
     display: flex;
@@ -187,5 +187,5 @@ header{
 
 .nome-do-sorteio{
   text-transform: uppercase;
-  color: white ;
+  /* color: white ; */
 }
