@@ -1,7 +1,6 @@
 
 let arrayEmbaralhado = []
 
-// codigo retirado do site http://cangaceirojavascript.com.br/como-embaralhar-arrays-algoritmo-fisher-yates/
 function embaralha(participantes){
     lista = participantes.slice()
     for (let indice = lista.length; indice; indice--) {

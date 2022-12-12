@@ -1,4 +1,4 @@
-const AmigoSecreto = require('./AmigoSecreto')
+const AmigoSecreto = require('./main')
 
 const participantes = [
     'Ariane',
