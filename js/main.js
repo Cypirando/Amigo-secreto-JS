@@ -81,12 +81,21 @@ function renderSorteio() {
   let listaOne = document.getElementById("lista-one");
   embaralhar(participantes);
   let sorteados = [];
-  for (let i = 0; i < participantes.length; i++) {
+  
+  participantes.forEach((a,i) =>{
     sorteados.push([
       participantes[i],
       participantes[i != participantes.length - 1 ? i + 1 : 0],
-    ]);
-  }
+    ])
+  })
+
+  // for (let i = 0; i < participantes.length; i++) {
+  //   console.log(i)
+  //   sorteados.push([
+  //     participantes[i],
+  //     participantes[i != participantes.length - 1 ? i + 1 : 0],
+  //   ]);
+  // }
   console.log("sorteados", sorteados);
   listaOne.innerHTML = "";
   listaOne.innerHTML += sorteados
