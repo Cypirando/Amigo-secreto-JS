@@ -55,12 +55,14 @@ function renderizar() {
 // Embaralhar
 function embaralhar(arr) {
   // Loop em todos os elementos
-  for (let i = arr.length - 1; i > 0; i--) {
+  // for (let i = arr.length - 1; i > 0; i--) {
+  // }
+  arr.forEach((a, i) => {
     // Escolhendo elemento aleatório
-    const j = Math.floor(Math.random() * (i + 1));
+    const aux = Math.floor(Math.random() * (i + 1));
     // Reposicionando elemento
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
+    [arr[i], arr[aux]] = [arr[aux], arr[i]];
+  });
   // Retornando array com aleatoriedade
   return arr;
 }
@@ -82,12 +84,12 @@ function renderSorteio() {
   embaralhar(participantes);
   let sorteados = [];
 
-  participantes.forEach((a,i) =>{
+  participantes.forEach((a, i) => {
     sorteados.push([
       participantes[i],
       participantes[i != participantes.length - 1 ? i + 1 : 0],
-    ])
-  })
+    ]);
+  });
 
   // for (let i = 0; i < participantes.length; i++) {
   //   console.log(i)
@@ -108,8 +110,8 @@ function renderSorteio() {
     .join(" ");
 }
 
-let btnAtualizar = document.getElementById('btn-atualizar')
+let btnAtualizar = document.getElementById("btn-atualizar");
 
-btnAtualizar.addEventListener('click',()=>{
+btnAtualizar.addEventListener("click", () => {
   window.location.reload();
-})
+});
