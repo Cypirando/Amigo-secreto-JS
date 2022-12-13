@@ -21,6 +21,10 @@ let btnSortear = document.querySelector("#btn-sortear");
 
 let participantes = [];
 let cadastrados = [];
+
+
+
+
 btnAdicionar.addEventListener("click", () => {
   let input = document.querySelector("#input-dados").value;
   if (input !== "") {
@@ -51,6 +55,28 @@ function renderizar() {
     .map((e) => `${e.name} <br /><br />`)
     .join("");
 }
+
+
+// -------------------------
+//renderizar arquivo txt
+const input = document.querySelector('input[type="file"]')
+let sp = document.querySelector('span')
+input.addEventListener('change', ()=>{
+    console.log(input.files)
+    const reader = new FileReader()
+    reader.onload=()=>{
+        const lines = reader.result.split('\r\n').map(line=>line)
+        console.log(lines)
+        quadroLista.innerHTML=lines.join(' ')
+    }
+    reader.readAsText(input.files[0])
+    
+      // quadroLista.innerHTML = "";
+      // quadroLista.innerHTML +=
+      //   .map((e) => `${e.name} <br /><br />`)
+      //   .join("");
+    
+},false)
 
 // Embaralhar
 function embaralhar(arr) {
