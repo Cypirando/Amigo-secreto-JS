@@ -82,20 +82,20 @@ function renderSorteio() {
   embaralhar(participantes);
   let sorteados = [];
 
-  // participantes.forEach((a,i) =>{
-  //   sorteados.push([
-  //     participantes[i],
-  //     participantes[i != participantes.length - 1 ? i + 1 : 0],
-  //   ])
-  // })
-
-  for (let i = 0; i < participantes.length; i++) {
-    console.log(i)
+  participantes.forEach((a,i) =>{
     sorteados.push([
       participantes[i],
       participantes[i != participantes.length - 1 ? i + 1 : 0],
-    ]);
-  }
+    ])
+  })
+
+  // for (let i = 0; i < participantes.length; i++) {
+  //   console.log(i)
+  //   sorteados.push([
+  //     participantes[i],
+  //     participantes[i != participantes.length - 1 ? i + 1 : 0],
+  //   ]);
+  // }
   console.log("sorteados", sorteados);
   listaOne.innerHTML = "";
   listaOne.innerHTML += sorteados
