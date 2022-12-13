@@ -107,3 +107,9 @@ function renderSorteio() {
     )
     .join(" ");
 }
+
+let btnAtualizar = document.getElementById('btn-atualizar')
+
+btnAtualizar.addEventListener('click',()=>{
+  window.location.reload();
+})

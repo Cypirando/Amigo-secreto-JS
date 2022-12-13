@@ -1,95 +1,100 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- link css  -->
-    <link rel="stylesheet" href="css/style.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Amigo Secreto1</title>
-  </head>
+  <!-- link css  -->
+  <link rel="stylesheet" href="css/style.css" />
 
-  <body>
-    <section id="inicio" class="inicio" style="display: flex;">
-      <!-- <div class="">
+  <title>Amigo Secreto1</title>
+</head>
+
+<body>
+  <section id="inicio" class="inicio" style="display: flex;">
+    <!-- <div class="">
         <img src="/img/presente.svg" alt="" />
       </div> -->
+    <div class="container">
+      <div class="title">
+        <h1>Sorteador de Amigo Secreto</h1>
+      </div>
+      <div class="name-sort">
+        <div class="caixa">
+          <div class="img-logo">
+            <img src="https://app.botdesigner.io/assets/img/bot-logo.jpg " alt="" />
+          </div>
+          <h6>Nome do Sorteio</h6>
+          <input id="input-one" type="text" />
+          <!-- <a href="/sorteio.html"> -->
+          <button id="btn-avancar" type="menu">Avançar</button>
+          <!-- </a> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="meio" style="display: none ;">
+    <header>
       <div class="container">
         <div class="title">
           <h1>Sorteador de Amigo Secreto</h1>
         </div>
-        <div class="name-sort">
-          <div class="caixa">
-            <div class="img-logo">
-              <img
-                src="https://app.botdesigner.io/assets/img/bot-logo.jpg "
-                alt=""
-              />
-            </div>
-            <h6>Nome do Sorteio</h6>
-            <input id="input-one" type="text" />
-            <!-- <a href="/sorteio.html"> -->
-            <button id="btn-avancar" type="menu">Avançar</button>
-            <!-- </a> -->
-          </div>
-        </div>
       </div>
-    </section>
 
-    <section id="meio" style="display: none ;" >
-      <header>
-        <div class="container">
-          <div class="title">
-            <h1>Sorteador de Amigo Secreto</h1>
-          </div>
-        </div>
+      <div class="box-lista">
+        <div class="name-int">
+          <div class="name-titulo">
+            <h6 style="padding-left:0">Coloque o nome aqui para participar!</h6>
+            <div class="name-input">
+              <input id="input-dados" type="name" />
+              <button class="btn btn-one" id="adicionar">&#10010;</button>
+              <button class="btn btn-two" id="btn-sortear">Sortear</button>
 
-        <div class="box-lista">
-          <div class="name-int">
-            <div class="name-titulo">
-              <h6 style="padding-left:0">Coloque o nome aqui para participar!</h6>
-              <div class="name-input">
-                <input id="input-dados" type="name"  />
-                <button class="btn btn-one"  id="adicionar">&#10010;</button>
-                <button class="btn btn-two" id="btn-sortear">Sortear</button>
-              
-              
+
             </div>
           </div>
           <div class="caixa-box">
-            <div><h3 id="nome-sorteio" class="nome-do-sorteio">Nome do sorteio</h3></div>
+            <div>
+              <h3 id="nome-sorteio" class="nome-do-sorteio">Nome do sorteio</h3>
+            </div>
             <div id="quadro-lista" class="list-int">
-              
-            </div>
-          </div>
-          
-        </div>
-      </header>
-    </section>
-    <section id="final"  style="display: none;">
-      <div class="container">
 
-        <div class="title" >
-          <h1>Sorteador de Amigo Secreto</h1>
-        </div>
-          <div class="box-lista" style="display: grid; justify-content: start">
-            <div class="lista-one" id="lista-one" >
-              <!-- <p>pablo tiro lilo</p>
-              <p>pablo tiro pedro</p> 
-              
-              <p>pablo tiro pedro</p> 
-              <p>pablo tiro pedro</p> -->
-               <div class="">
-        <img src="/img/presente.svg" alt="" />
-      </div> 
-              
             </div>
           </div>
+
+        </div>
+    </header>
+  </section>
+  <section id="final" style="display: none;">
+    <div class="container">
+
+      <div class="title">
+        <h1>Sorteador de Amigo Secreto</h1>
+      </div>
+      <!-- btn voltar ao inicio -->
+      <div>
+        <button class="btn-atualizar" id="btn-atualizar">
+          &#8634;
+        </button>
+      </div>
+      <!-- ----------- -->
+      <div class="box-lista" style="display: grid; justify-content: start">
+        <div class="lista-one" id="lista-one">
+          <!-- <p>pablo tiro lilo</p>
+              <p>pablo tiro pedro</p> -->
+          <div class="">
+            <img src="/img/presente.svg" alt="" />
           </div>
+
         </div>
       </div>
-    </section>
-    <script src="/js/main.js"></script>
-  </body>
+    </div>
+    </div>
+    </div>
+  </section>
+  <script src="/js/main.js"></script>
+</body>
+
 </html>
