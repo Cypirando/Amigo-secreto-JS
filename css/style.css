@@ -123,6 +123,7 @@
 }
 .name-int {
   display: flex;
+  flex-direction: column;
 }
 .name-titulo {
   display: grid;
