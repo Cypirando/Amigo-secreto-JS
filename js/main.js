@@ -94,7 +94,7 @@ function renderSorteio() {
       (i) =>
         `<div class="caixa-box-one name-2"><h3>${i
           .toString()
-          .replace(",", " tirou ")}</h3></div>`
+          .replace(",", " <i>tirou<i/> ")}</h3></div>`
     )
     .join(" ");
 }
