@@ -125,7 +125,6 @@
   display: flex;
 }
 .name-titulo {
-  justify-items: center;
   display: grid;
 }
 /* .name-titulo-h4 {
@@ -258,6 +257,8 @@ header{
 
 .nome-do-sorteio{
   text-transform: uppercase;
+  padding-left: 0;
+  font-size: medium;
   /* color: white ; */
 }
 .name-2{

@@ -81,27 +81,27 @@ function renderSorteio() {
   let listaOne = document.getElementById("lista-one");
   embaralhar(participantes);
   let sorteados = [];
-  
-  participantes.forEach((a,i) =>{
-    sorteados.push([
-      participantes[i],
-      participantes[i != participantes.length - 1 ? i + 1 : 0],
-    ])
-  })
 
-  // for (let i = 0; i < participantes.length; i++) {
-  //   console.log(i)
+  // participantes.forEach((a,i) =>{
   //   sorteados.push([
   //     participantes[i],
   //     participantes[i != participantes.length - 1 ? i + 1 : 0],
-  //   ]);
-  // }
+  //   ])
+  // })
+
+  for (let i = 0; i < participantes.length; i++) {
+    console.log(i)
+    sorteados.push([
+      participantes[i],
+      participantes[i != participantes.length - 1 ? i + 1 : 0],
+    ]);
+  }
   console.log("sorteados", sorteados);
   listaOne.innerHTML = "";
   listaOne.innerHTML += sorteados
     .map(
       (i) =>
-        `<div class="caixa-box-one name-2"><h3>${i
+        `<div class="caixa-box name-2"><h3>${i
           .toString()
           .replace(",", " <i>tirou<i/> ")}</h3></div>`
     )
