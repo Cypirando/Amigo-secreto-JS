@@ -8,8 +8,8 @@ let btnAncancar = document.getElementById("btn-avancar");
 
 //Nome do Sorteio
 btnAncancar.addEventListener("click", () => {
-  document.getElementById("meio").style.display = "grid";
-  document.getElementById("inicio").style.display = "none";
+  // document.getElementById("meio").style.display = "grid";
+  // document.getElementById("inicio").style.display = "none";
 
   printNomeDoSorteio.innerHTML = nomeDoSorteio.value;
   limparInputOne();
@@ -96,8 +96,8 @@ btnSortear.addEventListener("click", () => {
   if (participantes.length >= 2) {
     renderSorteio();
 
-    document.getElementById("meio").style.display = "none";
-    document.getElementById("final").style.display = "grid";
+    // document.getElementById("meio").style.display = "none";
+    // document.getElementById("final").style.display = "grid";
   } else if (participantes.length == 1) {
     alert("[ERRO] Não dar para jogar sozinho");
   } else {

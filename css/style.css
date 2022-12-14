@@ -239,7 +239,7 @@
 .box-lista{
   display: grid;
   padding: 10px 40px ;
-  background: rgb(0, 123, 255);
+  /* background: rgb(0, 123, 255); */
   max-width: 500px;
   border-radius: 15px;
 
