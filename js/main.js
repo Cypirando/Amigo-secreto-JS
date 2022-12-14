@@ -24,13 +24,15 @@ let cadastrados = [];
 
 btnAdicionar.addEventListener("click", () => {
   let input = document.querySelector("#input-dados").value;
-  if (input !== "") {
+  if (input !== "" && participantes.indexOf(input) == -1) {
     participantes.push(input);
     cadastrados.push({ name: input, id: cadastrados.length });
     renderizar();
     limparInput();
     console.log(participantes);
     console.log("cadastrados", cadastrados);
+  }else if(participantes.indexOf(input) != -1){
+    alert("[ERRO] O nome já existe");
   } else {
     alert("[ERRO] Insira o Nome dos Participantes");
   }
