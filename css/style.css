@@ -236,6 +236,21 @@
   background-color: #fff;
   
 }
+.nomes-sorteio{
+  display: grid;
+    grid-template-columns: 1fr auto;
+}
+.nomes-sorteio input{
+  border-color: #9a0404;
+  color: #fff;
+  box-shadow: 0 0 40px 40px #fa4141 inset, 0 0 0 0 #fa4141;
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+  border-radius: 3px 0 0 3px;
+  border-left: none;
+  border: 2px solid #fff;
+  cursor: pointer;
+}
 .box-lista{
   display: grid;
   padding: 10px 40px ;

@@ -49,7 +49,11 @@ let quadroLista = document.querySelector("#quadro-lista");
 function renderizar() {
   quadroLista.innerHTML = "";
   quadroLista.innerHTML += participantes
-    .map((e) => `${e} <br /><br />`)
+    .map((e) => `
+    <div class="nomes-sorteio">
+    ${e} <input type="button" onclick="excuir()" name="botao-ok" value="X"> <br /><br />
+    </div>
+    `)
     .join("");
 }
 
