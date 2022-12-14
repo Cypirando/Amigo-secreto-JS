@@ -54,8 +54,8 @@
               <input id="input-dados" type="name" autofocus />
               <button class="btn btn-one" id="adicionar">&#10010;</button>
               <button class="btn btn-two" id="btn-sortear">Sortear</button>
-              <div id="modal" style="">
-                <div class="modal-caixa">
+              <div id="modal" style=" display: none;">
+                <div class="modal-caixa" id="modal">
                   <p>Este documento tem tantas linhas deseja carrega?</p>
                  <div class="moda-span">
                    <span style="color: red; cursor: pointer;">não</span>
@@ -115,6 +115,10 @@
     </div>
     </div>
   </section>
+  <div class="mensagen-de-erro">
+    <p class="msg-1" style="display: none;">[ERRO] O nome já existe</p>
+    <p class="msg-2" style="display: none;">[ERRO] Insira o Nome dos Participantes</p>
+  </div>
  
   <script src="/js/main.js"></script>
 </body>

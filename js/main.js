@@ -73,7 +73,8 @@ input.addEventListener(
       console.log(lines);
       console.log(participantes);
       lines.forEach((nomes) => participantes.push(nomes));
-      renderizar()
+     document.getElementById("modal").style.display = "grid";
+    
     };
     reader.readAsText(input.files[0]);
 
@@ -153,8 +154,8 @@ function excuir(a) {
   renderizar()
 }
 // adiconar com enter
-document.addEventListener("keypress", (e) => {
-  if(e.key === "Enter"){
-    btnAdicionar.click();
-  }
-})
+// document.addEventListener("keypress", (e) => {
+//   if(e.key === "Enter"){
+//     btnAdicionar.click();
+//   }
+// })
