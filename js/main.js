@@ -47,9 +47,9 @@ function limparInput() {
 //Render
 let quadroLista = document.querySelector("#quadro-lista");
 function renderizar() {
-  // quadroLista.innerHTML = "";
-  quadroLista.innerHTML += Object.values(cadastrados)
-    .map((e) => `${e.name} <br /><br />`)
+  quadroLista.innerHTML = "";
+  quadroLista.innerHTML += participantes
+    .map((e) => `${e} <br /><br />`)
     .join("");
 }
 
@@ -67,7 +67,6 @@ input.addEventListener(
       console.log(lines);
       console.log(participantes);
       lines.forEach((nomes) => participantes.push(nomes));
-      quadroLista.innerHTML = lines.join("<br>");
       renderizar()
     };
     reader.readAsText(input.files[0]);
