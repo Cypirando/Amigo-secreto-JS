@@ -152,3 +152,9 @@ function excuir(a) {
   participantes.splice(a,1)
   renderizar()
 }
+// adiconar com enter
+document.addEventListener("keypress", (e) => {
+  if(e.key === "Enter"){
+    btnAdicionar.click();
+  }
+})
