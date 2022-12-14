@@ -47,7 +47,7 @@ function limparInput() {
 //Render
 let quadroLista = document.querySelector("#quadro-lista");
 function renderizar() {
-  quadroLista.innerHTML = "";
+  // quadroLista.innerHTML = "";
   quadroLista.innerHTML += Object.values(cadastrados)
     .map((e) => `${e.name} <br /><br />`)
     .join("");
@@ -67,7 +67,8 @@ input.addEventListener(
       console.log(lines);
       console.log(participantes);
       lines.forEach((nomes) => participantes.push(nomes));
-      quadroLista.innerHTML = lines.join(" ");
+      quadroLista.innerHTML = lines.join("<br>");
+      renderizar()
     };
     reader.readAsText(input.files[0]);
 
@@ -142,3 +143,8 @@ let btnAtualizar = document.getElementById("btn-atualizar");
 btnAtualizar.addEventListener("click", () => {
   window.location.reload();
 });
+function deleta() {
+  participantes.forEach((a,i) => {
+    
+  } )
+}
