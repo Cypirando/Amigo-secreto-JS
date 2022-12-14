@@ -321,3 +321,16 @@ header{
     position: absolute;
     left: 19%;
 }
+.modal-caixa{
+  position:absolute;
+  display: grid;
+  gap: 8px;
+  padding: 30px 20px;
+  border-radius: 5px;
+  box-shadow: rgb(219 219 219) 4px 1px 17px -5px;
+  max-width: 150px;
+  min-width: 100px;
+}
+.moda-span{
+  display: flex;
+}
