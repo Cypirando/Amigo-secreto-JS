@@ -147,5 +147,6 @@ btnAtualizar.addEventListener("click", () => {
   window.location.reload();
 });
 function excuir(a) {
- console.log(a)
+  participantes.splice(a,1)
+  renderizar()
 }
