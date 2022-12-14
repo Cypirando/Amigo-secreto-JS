@@ -7,6 +7,7 @@ let printNomeDoSorteio = document.getElementById("nome-sorteio");
 let btnAncancar = document.getElementById("btn-avancar");
 
 //Nome do Sorteio
+
 btnAncancar.addEventListener("click", () => {
   document.getElementById("meio").style.display = "grid";
   document.getElementById("inicio").style.display = "none";
@@ -44,6 +45,7 @@ function limparInputOne() {
 function limparInput() {
   let input = document.getElementById("input-dados");
   input.value = "";
+  input.focus()
 }
 
 //Render
@@ -158,3 +160,5 @@ document.addEventListener("keypress", (e) => {
     btnAdicionar.click();
   }
 })
+
+// document.getElementById("fname").addEventListener("focus");
