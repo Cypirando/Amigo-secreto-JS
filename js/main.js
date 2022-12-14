@@ -146,8 +146,6 @@ let btnAtualizar = document.getElementById("btn-atualizar");
 btnAtualizar.addEventListener("click", () => {
   window.location.reload();
 });
-function deleta() {
-  participantes.forEach((a,i) => {
-    
-  } )
+function excuir(a) {
+ console.log(a)
 }
