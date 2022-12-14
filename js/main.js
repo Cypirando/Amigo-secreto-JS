@@ -21,6 +21,7 @@ let btnSortear = document.querySelector("#btn-sortear");
 
 let participantes = [];
 let cadastrados = [];
+let linhas = 0
 
 btnAdicionar.addEventListener("click", () => {
   let input = document.querySelector("#input-dados").value;
@@ -70,11 +71,12 @@ input.addEventListener(
     const reader = new FileReader();
     reader.onload = () => {
       const lines = reader.result.split("\r\n").map((line) => line);
-      console.log(lines);
       console.log(participantes);
       lines.forEach((nomes) => participantes.push(nomes));
+      linhas = lines.length
+      console.log(linhas)
      document.getElementById("modal").style.display = "grid";
-    
+    renderizar()
     };
     reader.readAsText(input.files[0]);
 
