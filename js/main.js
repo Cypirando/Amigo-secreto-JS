@@ -65,8 +65,10 @@ input.addEventListener('change', ()=>{
     console.log(input.files)
     const reader = new FileReader()
     reader.onload=()=>{
-        const lines = reader.result.split('\r\n').map(line=>line)
-        console.log(lines)
+      const lines = reader.result.split('\r\n').map(line=>line)
+      console.log(lines)
+      console.log(participantes)
+      let arquivo = lines.forEach(e=>console.log('e',participantes.push(e), e))
         quadroLista.innerHTML=lines.join(' ')
     }
     reader.readAsText(input.files[0])
