@@ -128,9 +128,17 @@
 .name-titulo {
   display: grid;
 }
-/* .name-titulo-h4 {
+.name-titulo input {
+  border-color: #3498db;
+  color: #fff;
+  box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+  border-radius: 3px 0 0 3px;
+  border-left: none;
+  border: 2px solid #fff;
 
-} */
+}
 .name-input {
     display: flex;
     padding: 5px 0;
@@ -174,10 +182,10 @@
  
 }
 .btn-one:hover {
-  box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
+  box-shadow: 0 0 250px 0 #3498db inset, 0 0 10px 4px #3498db;
 }
 .btn-two:hover {
-  box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
+  box-shadow: 0 0 230px 0 #3498db inset, 0 0 10px 4px #3498db;
 }
 
 .btn {
@@ -217,7 +225,7 @@
   gap: 8px;
   padding: 5px 20px;
   border-radius: 8px;
-  box-shadow: rgb(219 219 219) 4px 1px 17px -5px;
+  /* box-shadow: rgb(219 219 219) 4px 1px 17px -5px; */
   max-width: 550px;
   min-width: 230px;
   background-color: #fff;
@@ -238,6 +246,7 @@
 }
 .nomes-sorteio{
   display: grid;
+  color: darkcyan;
     grid-template-columns: 1fr auto;
 }
 .nomes-sorteio input{
@@ -254,7 +263,7 @@
 .box-lista{
   display: grid;
   padding: 10px 40px ;
-  /* background: rgb(0, 123, 255); */
+  box-shadow: rgb(219 219 219) 4px 1px 17px -5px;
   max-width: 500px;
   border-radius: 15px;
 
@@ -273,15 +282,18 @@ header{
 
 .nome-do-sorteio{
   text-transform: uppercase;
-  padding-left: 0;
-  font-size: medium;
-  /* color: white ; */
+    padding-left: 0;
+    font-size: medium;
+    font-weight: 100;
+    color: #3498db;
+    font-family: cursive;
 }
 .name-2{
   display: flex;
   justify-content: center;
 }
 .name-2 h3{
+  color: darkcyan;
   text-transform: capitalize;
   font-family:Arial, Helvetica, sans-serif;
 }
@@ -302,4 +314,10 @@ header{
 .btn-atualizar:hover{
   box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
  
+}
+.imagem-bg{
+  width: 52%;
+    z-index: -1;
+    position: absolute;
+    left: 19%;
 }
