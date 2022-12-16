@@ -7,6 +7,42 @@ let printNomeDoSorteio = document.getElementById("nome-sorteio");
 let btnAncancar = document.getElementById("btn-avancar");
 
 //Nome do Sorteio
+const consulta = "http://localhost:3003/sort";
+async function getApi(nomes) {
+  console.log("entrou");
+  try {
+    let header = new Headers({
+      "Content-Type": "application/json",
+    });
+      let request =  await fetch(consulta, {
+      method: "POST",
+      headers: header,
+      body: JSON.stringify({ nomes }),
+    })
+    
+    request.json().then((sorteados) => {
+
+        let response = sorteados
+        console.log("sorteados", response);
+        
+        let listaOne = document.getElementById("lista-one");
+        listaOne.innerHTML = "";
+        listaOne.innerHTML += sorteados
+          .map(
+            (i) =>
+              `<div class="caixa-box name-2"><h3>${i
+                .toString()
+                .replace(",", " <i>tirou<i/> ")}</h3></div>`
+          )
+          .join(" ");
+      })
+      .catch((err) => console.log("err=", err));
+
+    // cliente = await res.json();
+  } catch (error) {
+    console.log("eror");
+  }
+}
 
 btnAncancar.addEventListener("click", () => {
   document.getElementById("meio").style.display = "grid";
@@ -22,7 +58,7 @@ let btnSortear = document.querySelector("#btn-sortear");
 
 let participantes = [];
 let cadastrados = [];
-let linhas = 0
+let linhas = 0;
 
 btnAdicionar.addEventListener("click", () => {
   let input = document.querySelector("#input-dados").value;
@@ -33,7 +69,7 @@ btnAdicionar.addEventListener("click", () => {
     limparInput();
     console.log(participantes);
     console.log("cadastrados", cadastrados);
-  }else if(participantes.indexOf(input) != -1){
+  } else if (participantes.indexOf(input) != -1) {
     alert("[ERRO] O nome já existe");
   } else {
     alert("[ERRO] Insira o Nome dos Participantes");
@@ -46,7 +82,7 @@ function limparInputOne() {
 function limparInput() {
   let input = document.getElementById("input-dados");
   input.value = "";
-  input.focus()
+  input.focus();
 }
 
 //Render
@@ -54,11 +90,13 @@ let quadroLista = document.querySelector("#quadro-lista");
 function renderizar() {
   quadroLista.innerHTML = "";
   quadroLista.innerHTML += participantes
-    .map((e,index) =>`
+    .map(
+      (e, index) => `
     <div class="nomes-sorteio">
     ${e} <input type="button" onclick="excuir(${index})" name="botao-ok" value="X"> <br /><br />
     </div>
-    `)
+    `
+    )
     .join("");
 }
 
@@ -75,10 +113,11 @@ input.addEventListener(
       const lines = reader.result.split("\r\n").map((line) => line);
       console.log(participantes);
       lines.forEach((nomes) => participantes.push(nomes));
-      linhas = lines.length
-      console.log(linhas)
-     document.getElementById("modal").style.display = "grid";
-    renderizar()
+      linhas = lines.length;
+
+      console.log(linhas);
+      document.getElementById("modal").style.display = "grid";
+      renderizar();
     };
     reader.readAsText(input.files[0]);
 
@@ -90,20 +129,20 @@ input.addEventListener(
   false
 );
 
-// Embaralhar
-function embaralhar(arr) {
-  // Loop em todos os elementos
-  // for (let i = arr.length - 1; i > 0; i--) {
-  // }
-  arr.forEach((a, i) => {
-    // Escolhendo elemento aleatório
-    const aux = Math.floor(Math.random() * (i + 1));
-    // Reposicionando elemento
-    [arr[i], arr[aux]] = [arr[aux], arr[i]];
-  });
-  // Retornando array com aleatoriedade
-  return arr;
-}
+// // Embaralhar
+// function embaralhar(arr) {
+//   // Loop em todos os elementos
+//   // for (let i = arr.length - 1; i > 0; i--) {
+//   // }
+//   arr.forEach((a, i) => {
+//     // Escolhendo elemento aleatório
+//     const aux = Math.floor(Math.random() * (i + 1));
+//     // Reposicionando elemento
+//     [arr[i], arr[aux]] = [arr[aux], arr[i]];
+//   });
+//   // Retornando array com aleatoriedade
+//   return arr;
+// }
 btnSortear.addEventListener("click", () => {
   if (participantes.length >= 2) {
     renderSorteio();
@@ -117,17 +156,16 @@ btnSortear.addEventListener("click", () => {
   }
 });
 
-function renderSorteio() {
-  let listaOne = document.getElementById("lista-one");
-  embaralhar(participantes);
-  let sorteados = [];
-
-  participantes.forEach((a, i) => {
-    sorteados.push([
-      participantes[i],
-      participantes[i != participantes.length - 1 ? i + 1 : 0],
-    ]);
-  });
+async function renderSorteio() {
+  
+  // embaralhar(participantes);
+  await getApi(participantes);
+  // participantes.forEach((a, i) => {
+  //   sorteados.push([
+  //     participantes[i],
+  //     participantes[i != participantes.length - 1 ? i + 1 : 0],
+  //   ]);
+  // });
 
   // for (let i = 0; i < participantes.length; i++) {
   //   console.log(i)
@@ -136,16 +174,7 @@ function renderSorteio() {
   //     participantes[i != participantes.length - 1 ? i + 1 : 0],
   //   ]);
   // }
-  console.log("sorteados", sorteados);
-  listaOne.innerHTML = "";
-  listaOne.innerHTML += sorteados
-    .map(
-      (i) =>
-        `<div class="caixa-box name-2"><h3>${i
-          .toString()
-          .replace(",", " <i>tirou<i/> ")}</h3></div>`
-    )
-    .join(" ");
+
 }
 
 let btnAtualizar = document.getElementById("btn-atualizar");
@@ -154,13 +183,12 @@ btnAtualizar.addEventListener("click", () => {
   window.location.reload();
 });
 function excuir(a) {
-  participantes.splice(a,1)
-  renderizar()
+  participantes.splice(a, 1);
+  renderizar();
 }
 // adiconar com enter
 document.addEventListener("keypress", (e) => {
-  if(e.key === "Enter"){
+  if (e.key === "Enter") {
     btnAdicionar.click();
   }
-})
-
+});
