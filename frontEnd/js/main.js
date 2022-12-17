@@ -1,5 +1,5 @@
 /* -------------------------------- */
-const rota = "http://localhost:3003/sort";
+const rota = "http://localhost:5000/nomes-sortados";
 /* -------------------------------- */
 async function getApi(nomes) {
   try {
