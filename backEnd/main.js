@@ -1,18 +1,23 @@
-function embaralhaNomes(nome) {
-  nome.map((e, i) => {
-    let aux = Math.floor(Math.random() * i+1);
-    [nome[i], nome[aux]] = [nome[aux], nome[i]];
-  });
 
-  return nome;
-}
-function sorteiaNomes(nome) {
-  let posicaoTrocada = embaralhaNomes(nome);
-  let duplas = [];
-  posicaoTrocada.map((e, i) => {
-    duplas.push([nome[i], nome[i != nome.length-1 ? i+1 : 0]]);
+function embaralhar(teste) {
+  teste.map((element, index) => {
+    let aux = Math.floor(Math.random() * (index + 1));
+    [teste[index], teste[aux]] = [teste[aux], teste[index]];
   });
-  return duplas;
+  return teste;
 }
 
-module.exports = { sorteiaNomes };
+function sortear(teste) {
+    // console.log("sortear=", teste)
+  let embaralhado =  embaralhar(teste);
+  let sorteados = [];
+  embaralhado.map((element, index) => {
+    sorteados.push([
+      teste[index],
+      teste[index != teste.length - 1 ? index + 1 : 0],
+    ]);
+  });
+  return sorteados;
+}
+
+module.exports = { sortear };

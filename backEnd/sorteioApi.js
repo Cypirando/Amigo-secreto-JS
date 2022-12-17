@@ -3,7 +3,7 @@ const porta = 5000;
 const cors = require("cors");
 const express = require("express");
 const app = express();
-const sorteioApi = require("./sorteioApi");
+const sorteioApi = require("./sorteioApi.js");
 
 app.use(cors());
 app.use(
@@ -11,10 +11,11 @@ app.use(
     extended: true,
   })
 );
+
 app.use(express.json());
 app.post("/nomes-sortados", (req, res, next) => {
   let participantes = req.body.nomes;
-  let resultado = sorteioApi.sorteiaNomes(participantes);
+  let resultado = sorteioApi.sortear(participantes);
   res.send(resultado);
 });
 app.listen(porta, () => {
