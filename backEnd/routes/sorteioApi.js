@@ -1,33 +1,48 @@
 const porta = 5000;
-
 const cors = require("cors");
 const express = require("express");
-
 const app = express();
-// const sorteioApi = require("./sorteioApi");
 
-app.use(cors());
-app.use(
-  express.urlencoded({
-    extended: true,
-  })
-);
+corsApp();
+useApp();
+exxpresApp();
+postApp();
+message();
 
-app.use(express.json());
-app.post("/nomes-sortados", (req, res, next) => {
-  let participantes = req.body.nomes;
-  let resultado = sortearNomes(participantes);
-  res.send(resultado);
-});
-app.listen(porta, () => {
-  console.log(`Servidor executando na porta ${porta}`);
-});
+function corsApp() {
+  app.use(cors());
+}
 
+function useApp() {
+  app.use(
+    express.urlencoded({
+      extended: true,
+    })
+    );
+  }
+  
+  function exxpresApp() {
+    app.use(express.json());
+  }
+  
+  function postApp() {
+    app.post("/nomes-sortados", (req, res, _next) => {
+      let participantes = req.body.nomes;
+      let resultado = sortearNomes(participantes);
+      res.send(resultado);
+    });
+  }
+  
+  function message() {
+    app.listen(porta, () => {
+      console.log(`Servidor executando na porta ${porta}`);
+    });
+  }
 
+  /*-----Faz o sorteio------*/
 
-/**dddddddddddddddddddddddd */
 function embaralhar(teste) {
-  teste.map((element, index) => {
+  teste.map((_element, index) => {
     let aux = Math.floor(Math.random() * (index + 1));
     [teste[index], teste[aux]] = [teste[aux], teste[index]];
   });
@@ -38,7 +53,7 @@ function sortearNomes(teste) {
   console.log("sortear=", teste);
   let mudaPocicao = embaralhar(teste);
   let duplas = [];
-  mudaPocicao.map((element, index) => {
+  mudaPocicao.map((_element, index) => {
     duplas.push([
       teste[index],
       teste[index != teste.length - 1 ? index + 1 : 0],
@@ -46,31 +61,4 @@ function sortearNomes(teste) {
   });
   return duplas;
 }
-
-
-/**[[[[[[[[[[[[[[[[[teste]]]]]]]]]]]]]]]]] */
-
-function embaralhar(teste) {
-  teste.map((element, index) => {
-    let aux = Math.floor(Math.random() * (index + 1));
-    [teste[index], teste[aux]] = [teste[aux], teste[index]];
-  });
-  return teste;
-}
-
-function sortearNomes(teste) {
-  console.log("sortear=", teste);
-  let mudaPocicao = embaralhar(teste);
-  let duplas = [];
-  mudaPocicao.map((element, index) => {
-    duplas.push([
-      teste[index],
-      teste[index != teste.length - 1 ? index + 1 : 0],
-    ]);
-  });
-  return duplas;
-}
-
-// module.exports = { sortearNomes };
-
 
