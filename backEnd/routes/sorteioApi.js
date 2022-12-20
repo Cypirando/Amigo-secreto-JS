@@ -3,7 +3,7 @@ const porta = 5000;
 const cors = require("cors");
 const express = require("express");
 const app = express();
-const api = require("./sorteios");
+const api = require("./sorteiosNomes");
 
 corsApp();
 useApp();
