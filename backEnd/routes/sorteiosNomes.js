@@ -19,12 +19,12 @@ function sortearNomes(teste) {
   });
   console.log("duplas=", duplas);
   duplas.forEach((item) => {
-    mandaNomeEail(item[0].email, item[1].nome);
+    mandaNomeEail(item[0].email,item[0].nome, item[1].nome);
   });
   return duplas;
 }
 
-function mandaNomeEail(destinatario, nome) {
+function mandaNomeEail(destinatario,destinatarioNome, nome) {
   console.log("destiario pegou " + destinatario, "do " + nome);
   //TRANSPORTE
   let transport = nodemailer.createTransport({
@@ -42,7 +42,18 @@ function mandaNomeEail(destinatario, nome) {
     to: destinatario, // list of receivers
     subject: "Hello ✔", // Subject line
     text: "Hello world?", // plain text body
-    html: `<b>${nome}?</b>`, // html body
+    html: `<body>
+    <header>
+    <h6>Para: ${destinatario}</h6>
+    <h2>Botdesinger</h2>
+    <h3>Sorteador de Amigo Secreto</h3>
+    <p>Olá ${destinatarioNome} voce pegou ${nome} no sorteio do amigosecreto! </p>
+    </header>
+    <footer>
+       <h6>Feliz Natal</h6> 
+    </footer>
+    
+</body>`, // html body
   });
 }
 
