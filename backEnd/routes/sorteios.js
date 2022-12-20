@@ -20,4 +20,6 @@ function sortearNomes(teste) {
   });
   return duplas;
 }
+
+
 module.exports = { sortearNomes };
