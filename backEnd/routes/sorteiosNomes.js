@@ -7,8 +7,9 @@ function extrairNomes(resultado) {
     nomesDoArray= nomes.nome;
     aux.push(nomesDoArray)
     sortearNomes(aux)
-    return nomesDoArray;
+    console.log("aux=",aux)
   });
+  return aux;
 }
     // console.log(nomesDoArray);
     // console.log(aux);
