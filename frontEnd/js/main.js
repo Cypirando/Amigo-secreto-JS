@@ -9,19 +9,17 @@ async function getApi(nomes) {
     let request = await fetch(rota, {
       method: "POST",
       headers: header,
-      body: JSON.stringify({ nomes }),
+      body: JSON.stringify({ nomes}),
     });
     request
       .json()
       .then((sorteados) => {
         let printTela = document.getElementById("lista-one");
         printTela.innerHTML = "";
-        printTela.innerHTML += sorteados
-          .map(
-            (i) =>
-              `<div class="caixa-box name-2"><h3>${i
-                .toString()
-                .replace(",", " <i>tirou<i/> ")}</h3></div>`
+        printTela.innerHTML +=Object.values(sorteados)
+        .map(
+            (i) =>console.log('i',i)
+              `<div class="caixa-box name-2"><h3>${i.nome}</h3></div>`
           )
           .join(" ");
       })
@@ -54,12 +52,18 @@ let cadastrados = [];
 let linhas = 0;
 btnAdicionar.addEventListener("click", () => {
   let input = document.querySelector("#input-dados").value;
+  let inputemail = document.querySelector('#input-email').value;
+
+
   if (input !== "" && participantes.indexOf(input) == -1) {
-    participantes.push(input);
+
+    participantes.push({nome:input,email:inputemail});
+    
     cadastrados.push({ name: input, id: cadastrados.length });
+    
     renderizar();
     limparInput();
-    console.log(participantes);
+    console.log('participantes',participantes);
     console.log("cadastrados", cadastrados);
   } else if (participantes.indexOf(input) != -1) {
     alert("O nome já existe");
@@ -85,7 +89,7 @@ function renderizar() {
     .map(
       (e, index) => `
     <div class="nomes-sorteio">
-    ${e} <input type="button" onclick="excuir(${index})" name="botao-ok" value="X"> <br /><br />
+    ${e.nome} <input type="button" onclick="excuir(${index})" name="botao-ok" value="X"> <br /><br />
     </div>
     `
     )
