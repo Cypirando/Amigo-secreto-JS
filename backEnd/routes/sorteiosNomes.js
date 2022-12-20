@@ -1,4 +1,17 @@
-/*-----Faz o sorteio------*/
+let nomesDoArray = [];
+let aux = []
+
+// teste(resultado);
+function extrairNomes(resultado) {
+  resultado.map((nomes) => {
+    nomesDoArray= nomes.nome;
+    aux.push(nomesDoArray)
+    sortearNomes(aux)
+    return nomesDoArray;
+  });
+}
+    // console.log(nomesDoArray);
+    // console.log(aux);
 
 function embaralhar(teste) {
   teste.map((_element, index) => {
@@ -9,7 +22,7 @@ function embaralhar(teste) {
 }
 
 function sortearNomes(teste) {
-  console.log("sortear=", teste);
+  // console.log("sortear=", teste);
   let mudaPocicao = embaralhar(teste);
   let duplas = [];
   mudaPocicao.map((_element, index) => {
@@ -18,8 +31,11 @@ function sortearNomes(teste) {
       teste[index != teste.length - 1 ? index + 1 : 0],
     ]);
   });
+  console.log("duplas=", duplas);
   return duplas;
 }
 
 
-module.exports = { sortearNomes };
+module.exports = { extrairNomes };
+
+
