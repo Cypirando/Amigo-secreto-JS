@@ -8,11 +8,12 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Fábio Cypriano & Mauricio Dias",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "nodemailer": "^6.8.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
