@@ -6,7 +6,7 @@ function extrairNomes(resultado) {
   resultado.map((nomes) => {
     nomesDoArray= nomes.nome;
     aux.push(nomesDoArray)
-    sortearNomes(aux)
+    // sortearNomes(aux)
     console.log("aux=",aux)
   });
   return aux;
@@ -37,6 +37,6 @@ function sortearNomes(teste) {
 }
 
 
-module.exports = { extrairNomes };
+module.exports = { extrairNomes, sortearNomes };
 
 

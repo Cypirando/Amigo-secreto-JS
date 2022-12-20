@@ -32,11 +32,14 @@ function exxpresApp() {
 function postApp() {
   app.post("/nomes-sortados", (req, res, _next) => {
     let participantes = req.body.nomes;
+    
     console.log("part.api",participantes)
     let resultado = api.extrairNomes(participantes);
+    let fabio = api.sortearNomes(resultado)
     console.log("resul.api",resultado)
+    console.log("resul.fabio",fabio)
 
-    res.send(resultado);
+    res.send(fabio);
   });
 }
 

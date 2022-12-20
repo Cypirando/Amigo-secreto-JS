@@ -9,19 +9,18 @@ async function getApi(nomes) {
     let request = await fetch(rota, {
       method: "POST",
       headers: header,
-      body: JSON.stringify({ nomes}),
+      body: JSON.stringify({ nomes }),
     });
     request
       .json()
       .then((sorteados) => {
+        console.log(sorteados);
         let printTela = document.getElementById("lista-one");
         printTela.innerHTML = "";
-        printTela.innerHTML +=Object.values(sorteados)
-        .map(
-            (i) =>console.log('i',i)
-              `<div class="caixa-box name-2"><h3>${i.nome}</h3></div>`
-          )
-          .join(" ");
+        printTela.innerHTML += sorteados.map((i) => {
+          console.log("i", i);
+          return `<div class="caixa-box name-2"><h3>${i}</h3></div>`;
+        });
       })
       .catch((err) => console.log("err=", err));
   } catch (error) {
@@ -52,18 +51,16 @@ let cadastrados = [];
 let linhas = 0;
 btnAdicionar.addEventListener("click", () => {
   let input = document.querySelector("#input-dados").value;
-  let inputemail = document.querySelector('#input-email').value;
-
+  let inputemail = document.querySelector("#input-email").value;
 
   if (input !== "" && participantes.indexOf(input) == -1) {
+    participantes.push({ nome: input, email: inputemail });
 
-    participantes.push({nome:input,email:inputemail});
-    
     cadastrados.push({ name: input, id: cadastrados.length });
-    
+
     renderizar();
     limparInput();
-    console.log('participantes',participantes);
+    console.log("participantes", participantes);
     console.log("cadastrados", cadastrados);
   } else if (participantes.indexOf(input) != -1) {
     alert("O nome já existe");
@@ -136,5 +133,3 @@ voltarInicio.addEventListener("click", () => {
   window.location.reload();
 });
 /* --------------16/12/2022------------------ */
-
-
