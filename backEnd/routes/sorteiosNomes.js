@@ -28,17 +28,17 @@ function mandaNomeEail(destinatario,destinatarioNome, nome) {
   console.log("destiario pegou " + destinatario, "do " + nome);
   //TRANSPORTE
   let transport = nodemailer.createTransport({
-    host: "smtp.mailtrap.io",
-    port: 2525,
+    host: "smtp.gmail.com",
+    port: 587,
     auth: {
-      user: "1970641b66c5eb",
-      pass: "2a1e5cf8d05183",
-    },
+        user: "secretoamigo338@gmail.com",
+        pass: "esnihkyhgvvjvhwd"
+    }
   });
 
   //CONFIGURAÇÃO DO EMAIL
   let info = transport.sendMail({
-    from: '"Fred Foo 👻" <foo@example.com>', // sender address
+    from: 'secretoamigo338@gmail.com', // sender address
     to: destinatario, // list of receivers
     subject: "Hello ✔", // Subject line
     text: "Hello world?", // plain text body
@@ -47,7 +47,7 @@ function mandaNomeEail(destinatario,destinatarioNome, nome) {
     <h6>Para: ${destinatario}</h6>
     <h2>Botdesinger</h2>
     <h3>Sorteador de Amigo Secreto</h3>
-    <p>Olá ${destinatarioNome} voce pegou ${nome} no sorteio do amigosecreto! </p>
+    <p>Olá ${destinatarioNome} voce pegou <strong>${nome}</strong> no sorteio do amigo secreto! </p>
     </header>
     <footer>
        <h6>Feliz Natal</h6> 
