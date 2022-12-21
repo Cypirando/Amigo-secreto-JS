@@ -14,13 +14,13 @@ async function getApi(nomes) {
     request
       .json()
       .then((sorteados) => {
-        console.log(sorteados);
-        let printTela = document.getElementById("lista-one");
-        printTela.innerHTML = "";
-        printTela.innerHTML += sorteados.map((i) => {
-          console.log("i", i);
-          return `<div class="caixa-box name-2"><h3>${i}</h3></div>`;
-        });
+        // console.log(sorteados);
+        // let printTela = document.getElementById("lista-one");
+        // printTela.innerHTML = "";
+        // printTela.innerHTML += sorteados.map((i) => {
+        //   console.log("i", i);
+        //   return `<div class="caixa-box name-2"><h3>O sorteio foi enviado no Email.</h3></div>`;
+        // });
       })
       .catch((err) => console.log("err=", err));
   } catch (error) {
@@ -51,10 +51,14 @@ let cadastrados = [];
 let linhas = 0;
 btnAdicionar.addEventListener("click", () => {
   let input = document.querySelector("#input-dados").value;
-  let inputemail = document.querySelector("#input-email").value;
-
-  if (input !== "" && participantes.indexOf(input) == -1) {
-    participantes.push({ nome: input, email: inputemail });
+  let imputEmail = document.querySelector("#input-email").value
+  // function validateEmail(imputEmail) {
+  //   var re = /\S+@\S+\.\S+/;
+  //   re.test(imputEmail)
+  //   return true;
+  // }
+  if (input !== "" && participantes.indexOf(input) == -1 && imputEmail!== "" &&) {
+    participantes.push({ nome: input, email: imputEmail });
 
     cadastrados.push({ name: input, id: cadastrados.length });
 
@@ -65,7 +69,7 @@ btnAdicionar.addEventListener("click", () => {
   } else if (participantes.indexOf(input) != -1) {
     alert("O nome já existe");
   } else {
-    alert("Insira o Nome dos Participantes");
+    alert("Insira o Nome e Email dos Participantes");
   }
 });
 document.addEventListener("keypress", (e) => {
@@ -75,8 +79,11 @@ document.addEventListener("keypress", (e) => {
 });
 function limparInput() {
   let limpaInput = document.getElementById("input-dados");
+  let LimparEmail = document.getElementById("input-email")
   limpaInput.value = "";
+  LimparEmail.value = "";
   limpaInput.focus();
+  // LimparEmail.focus();
 }
 /* -------------------------------- */
 let quadroLista = document.querySelector("#quadro-lista");
