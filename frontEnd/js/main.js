@@ -37,7 +37,7 @@ let btnAncancar = document.getElementById("btn-avancar");
 btnAncancar.addEventListener("click", () => {
   document.getElementById("meio").style.display = "grid";
   document.getElementById("inicio").style.display = "none";
-  printNomeDoSorteio.innerHTML = nomeDoSorteio.value;
+  printNomeDoSorteio.innerHTML = nomeDoSorteio.value;nome-sorteado
   limparInputOne();
 });
 function limparInputOne() {

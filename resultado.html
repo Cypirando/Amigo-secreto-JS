@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/frontEnd/css/style.css" />
+
+    <title>Resultadoo</title>
+  </head>
+  <body>
+    <section id="inicio" class="inicio" style="display: ">
+      <div class="container">
+        <div class="title">
+          <h1>Sorteador de Amigo Secreto</h1>
+        </div>
+        <div class="name-sort">
+          <div class="caixa">
+            <div class="img-logo">
+              <img
+                src="https://app.botdesigner.io/assets/img/bot-logo.jpg "
+                alt=""
+              />
+            </div>
+            <h6>Você pegou!</h6>
+            <h2  id="nome-sorteado" style="display: flex; justify-content: center"></h2>
+            <button id="btn-avancar" onclick="window.close()" type="menu">
+              SAIR
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+let printNomeDoSorte = document.getElementById("nome-sorteado");
+
+      let url_atual = window.location.href;
+      let token = url_atual.slice(37);
+      console.log(token);
+      let result;
+      parseJwt(token);
+      function parseJwt(token) {
+        var base64Url = token.split(".")[1];
+        var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+        var jsonPayload = decodeURIComponent(
+          window
+            .atob(base64)
+            .split("")
+            .map(function (c) {
+              return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+            })
+            .join("")
+        );
+
+        result =  JSON.parse(jsonPayload);
+        return result
+      }
+      printNomeDoSorte.innerHTML = result.nome;
+
+      console.log(result.nome);
+    </script>
+  </body>
+</html>

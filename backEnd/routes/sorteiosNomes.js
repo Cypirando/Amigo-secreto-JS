@@ -2,7 +2,6 @@ const nodemailer = require("nodemailer");
 const SECRET = "botdesigner";
 const jwt = require("jsonwebtoken");
 
-
 function embaralhar(teste) {
   teste.map((_element, index) => {
     let aux = Math.floor(Math.random() * (index + 1));
@@ -29,11 +28,9 @@ function sortearNomes(teste) {
 }
 
 function mandaNomeEail(destinatario, destinatarioNome, remetenteNome) {
-  // console.log("destiario pegou " + destinatario, "do " + nome);
   //TRANSPORTE
-  const token = jwt.sign({ texte:remetenteNome}, SECRET, { expiresIn: 300 });
-  //  res.send({ auth: true, token });
-// let mensagem = { auth: true, token }
+  const token = jwt.sign({ nome: remetenteNome }, SECRET, { expiresIn: 500 });
+  console.log({ auth: true, token });
   let transport = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 587,
@@ -48,13 +45,26 @@ function mandaNomeEail(destinatario, destinatarioNome, remetenteNome) {
     from: "secretoamigo338@gmail.com", // sender address
     to: destinatario, // list of receivers
     subject: "Hello ✔", // Subject line
-    text: "Hello world?", // plain text body
+    text: "Hello wld?or", // plain text body
     html: `<body>
     <header>
     <h6>Para: ${destinatario}</h6>
     <h2>Botdesigner</h2>
     <h3>Sorteador de Amigo Secreto</h3>
-    <p>Olá ${destinatarioNome} voce pegou <strong>${token}</strong> no sorteio do amigo secreto! </p>
+    <p>Olá ${destinatarioNome} você participou no sorteio do amigo secreto!</p>
+    <a  href="http://127.0.0.1:5501/resultado.html?${token}">
+        <button
+          style="
+            color: #fff;
+            border: none;
+            background-color: #428fdc;
+            font-size: 10px;
+            padding: 7px 11px;
+            border-radius: 3px;
+            cursor: pointer;
+          "> Resultao </button>
+      </a>
+      <p>Para acessar o resultado do sorteio ultilize o Botão acima</p>
     </header>
     <footer>
        <h6>Feliz Natal</h6> 
