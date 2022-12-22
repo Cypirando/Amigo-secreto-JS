@@ -53,11 +53,11 @@ btnAdicionar.addEventListener("click", () => {
   let input = document.querySelector("#input-dados").value;
   let imputEmail = document.querySelector("#input-email").value
   // function validateEmail(imputEmail) {
-    var re = /\S+@\S+\.\S+/;
-    // re.test(imputEmail)
+  //   var re = /\S+@\S+\.\S+/;
+  //   re.test(imputEmail)
   //   return true;
   // }
-  if (input !== "" && participantes.indexOf(input) == -1 && imputEmail!== "") {
+  if (input !== "" && participantes.indexOf(input) == -1 && imputEmail!== "" ) {
     participantes.push({ nome: input, email: imputEmail });
 
     cadastrados.push({ name: input, id: cadastrados.length });

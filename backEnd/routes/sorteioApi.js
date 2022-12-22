@@ -2,84 +2,107 @@ const porta = 5000;
 const cors = require("cors");
 const express = require("express");
 // const ejs = require("ejs");
+// var token = jwt.sign({ foo: "bar" }, "shhhhh");
 const app = express();
 const api = require("./sorteiosNomes");
+const SECRET = "botdesigner";
+const jwt = require("jsonwebtoken");
 
-corsApp();
-useApp();
-exxpresApp();
-postApp();
-// getEmail();
-message();
+app.use(cors());
 
-function corsApp() {
-  app.use(cors());
-}
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
 
-function useApp() {
-  app.use(
-    express.urlencoded({
-      extended: true,
-    })
-  );
-}
+app.use(express.json());
 
-function exxpresApp() {
-  app.use(express.json());
-}
+/*=========>V2 --*/
+let resultadoDeQuemPegouQuem
+app.post("/nomes-sortados", (req, res, _next) => {
+  let participantes = req.body.nomes;
+  // const token = jwt.sign({ texte:"veioaqui" }, SECRET, { expiresIn: 300 });
 
-function postApp() {
-  app.post("/nomes-sortados", (req, res, _next) => {
-    let participantes = req.body.nomes;
-    
-    console.log("part.api",participantes)
-    // let resultado = api.extrairNomes(participantes);
-    let resultadoDeQuemPegouQuem = api.sortearNomes(participantes)
-    console.log("resul.api",participantes)
-    console.log("resul.resultadoDeQuemPegouQuem",resultadoDeQuemPegouQuem)
+  resultadoDeQuemPegouQuem = api.sortearNomes(participantes);
+  
+  res.send(resultadoDeQuemPegouQuem);
+  //  res.send({ auth: true, token });
+});
 
-    res.send(resultadoDeQuemPegouQuem);
-  });
-}
 
-// function getEmail() {
-//   app.get("/enviar-email", async (_req, res) => {
-//     ejs.renderFile(__dirname + "/email.ejs", (err, data) => {
-//       if (err) {
-//         console.log(err);
-//       } else {
-//         let transport = nodemailer.createTransport({
-//           host: "smtp.mailtrap.io",
-//           port: 2525,
-//           auth: {
-//             user: "1970641b66c5eb",
 
-//             pass: "2a1e5cf8d05183",
-//           },
-//         });
+/*=========>V3 --*/
 
-//         let mailTranporter = {
-//           from: '"Fred Foo 👻" <foo@example.com>',
-//           to: "bar@example.com, baz@example.com",
-//           subject: "Hello ✔",
-//           html: data, // html body
-//         };
+app.post("/token-sortados", (req, res, _next) => {
 
-//         transport.sendMail(mailTranporter, () => {
-//           if (err) {
-//             console.log(err);
-//           } else {
-//             console.log("Mensagem enviada.");
-//           }
-//         });
-//       }
-//     });
-//     res.send("Enviou");
-//   });
+  let user = req.body.user;
+  let password = req.body.password;
+  // if (user === "luiz" && password == "123") {
+    const token = jwt.sign({ texte:"oi" }, SECRET, { expiresIn: 300 });
+
+    return res.json({ auth: true, token });
+//   }
+//   res.status(401).end();
+//   res.send("OK.");
+});
+
+// function veryfyJwt(req,res, next){
+//   const token = req.headers['x-access-token'];
+//   jwt.verify(token,SECRET, async (err, decoded) => {
+//     if(err) return  res.status(401).end();
+
+//     req.userId = decoded.userId
+//     next()
+//   })
 // }
 
-function message() {
-  app.listen(porta, () => {
-    console.log(`Servidor executando na porta ${porta}`);
-  });
-}
+
+
+app.listen(porta, () => {
+  console.log(`Servidor executando na porta ${porta}`);
+});
+
+
+
+
+
+
+
+
+
+
+
+// app.listen(porta, () => {
+//   console.log(`Servidor executando na porta ${porta}`);
+// });
+
+// const crypto = require('crypto');
+
+// const header = JSON.stringify({
+//     'alg': 'HS256',
+//     'typ': 'JWT'
+// });
+
+// const payload = JSON.stringify({
+//     'email': 'aylan@boscarino.com',
+//     'password': 'ya0gsqhy4wzvuvb4'
+// });
+
+// const base64Header = Buffer.from(header).toString('base64').replace(/=/g, '');
+// const base64Payload = Buffer.from(payload).toString('base64').replace(/=/g, '');
+// const secret = 'my-custom-secret';
+
+// const data = base64Header + '.' + base64Payload;
+
+// const signature = crypto
+//     .createHmac('sha256', secret)
+//     .update(data)
+//     .digest('base64');
+
+// const signatureUrl = signature
+//     .replace(/\+/g, '-')
+//     .replace(/\//g, '_')
+//     .replace(/=/g, '')
+
+// console.log(signatureUrl);

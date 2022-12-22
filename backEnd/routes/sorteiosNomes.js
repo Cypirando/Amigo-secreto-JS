@@ -1,4 +1,7 @@
 const nodemailer = require("nodemailer");
+const SECRET = "botdesigner";
+const jwt = require("jsonwebtoken");
+
 
 function embaralhar(teste) {
   teste.map((_element, index) => {
@@ -17,37 +20,41 @@ function sortearNomes(teste) {
       teste[index != teste.length - 1 ? index + 1 : 0],
     ]);
   });
-  console.log("duplas=", duplas);
+  // console.log("duplas=", duplas);
   duplas.forEach((item) => {
-    mandaNomeEail(item[0].email,item[0].nome, item[1].nome);
+    console.log(item);
+    mandaNomeEail(item[0].email, item[0].nome, item[1].nome);
   });
   return duplas;
 }
 
-function mandaNomeEail(destinatario,destinatarioNome, nome) {
-  console.log("destiario pegou " + destinatario, "do " + nome);
+function mandaNomeEail(destinatario, destinatarioNome, remetenteNome) {
+  // console.log("destiario pegou " + destinatario, "do " + nome);
   //TRANSPORTE
+  const token = jwt.sign({ texte:remetenteNome}, SECRET, { expiresIn: 300 });
+  //  res.send({ auth: true, token });
+// let mensagem = { auth: true, token }
   let transport = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 587,
     auth: {
-        user: "secretoamigo338@gmail.com",
-        pass: "esnihkyhgvvjvhwd"
-    }
+      user: "secretoamigo338@gmail.com",
+      pass: "esnihkyhgvvjvhwd",
+    },
   });
 
   //CONFIGURAÇÃO DO EMAIL
   let info = transport.sendMail({
-    from: 'secretoamigo338@gmail.com', // sender address
+    from: "secretoamigo338@gmail.com", // sender address
     to: destinatario, // list of receivers
     subject: "Hello ✔", // Subject line
     text: "Hello world?", // plain text body
     html: `<body>
     <header>
     <h6>Para: ${destinatario}</h6>
-    <h2>Botdesinger</h2>
+    <h2>Botdesigner</h2>
     <h3>Sorteador de Amigo Secreto</h3>
-    <p>Olá ${destinatarioNome} voce pegou <strong>${nome}</strong> no sorteio do amigo secreto! </p>
+    <p>Olá ${destinatarioNome} voce pegou <strong>${token}</strong> no sorteio do amigo secreto! </p>
     </header>
     <footer>
        <h6>Feliz Natal</h6> 
@@ -57,4 +64,4 @@ function mandaNomeEail(destinatario,destinatarioNome, nome) {
   });
 }
 
-module.exports = { sortearNomes };
+module.exports = { sortearNomes, mandaNomeEail };
