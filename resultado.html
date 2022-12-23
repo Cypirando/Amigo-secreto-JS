@@ -22,7 +22,10 @@
               />
             </div>
             <h6>Você pegou!</h6>
-            <h2  id="nome-sorteado" style="display: flex; justify-content: center"></h2>
+            <h2
+              id="nome-sorteado"
+              style="display: flex; justify-content: center"
+            ></h2>
             <button id="btn-avancar" onclick="window.close()" type="menu">
               SAIR
             </button>
@@ -32,7 +35,7 @@
     </section>
 
     <script>
-let printNomeDoSorte = document.getElementById("nome-sorteado");
+      let printNomeDoSorte = document.getElementById("nome-sorteado");
 
       let url_atual = window.location.href;
       let token = url_atual.slice(37);
@@ -52,8 +55,8 @@ let printNomeDoSorte = document.getElementById("nome-sorteado");
             .join("")
         );
 
-        result =  JSON.parse(jsonPayload);
-        return result
+        result = JSON.parse(jsonPayload);
+        return result;
       }
       printNomeDoSorte.innerHTML = result.nome;
 
