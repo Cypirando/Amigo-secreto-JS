@@ -1,5 +1,6 @@
 /*-----Faz o sorteio------*/
 
+
 function embaralhar(teste) {
   teste.map((_element, index) => {
     let aux = Math.floor(Math.random() * (index + 1));

@@ -14,6 +14,7 @@ async function getApi(nomes) {
     request
       .json()
       .then((sorteados) => {
+        console.log(sorteados)
         let printTela = document.getElementById("lista-one");
         printTela.innerHTML = "";
         printTela.innerHTML += sorteados
