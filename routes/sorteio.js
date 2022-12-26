@@ -3,30 +3,40 @@ const router = express.Router();
 const mysql = require("../mysql").pool;
 //Visualiza nomes
 router.get("/", (req, res, next) => {
-  res.status(200).send({
-    mensagem: "Detalhe do Sorteios.",
+  // res.status(200).send({
+  //   mensagem: "Detalhe do Sorteios.",
+  // });
+  mysql.getConnection((error, conn) => {
+    if (error) {
+      return res.status(500).send({ error: error });
+    }
+    conn.query("SELECT * FROM usuarios;", (error, resultado, field) => {
+      if (error) {
+        return res.status(500).send({ error: error });
+      }
+      return res.status(200).send({ listaDeUsuarios: resultado });
+    });
   });
 });
 //Posta nomes
 router.post("/", (req, res, next) => {
-  // const user = {
-  //   nome: req.body.nome,
-  //   email: req.body.email,
-  // };
   mysql.getConnection((error, conn) => {
+    if (error) {
+      return res.status(500).send({ error: error });
+    }
     conn.query(
-      "ISERT INTO usuarios (nome,email) VALUES (?,?)",
+      "INSERT INTO usuarios (nome,email) VALUES (?,?)",
       [req.body.nome, req.body.email],
       (error, resultado, field) => {
         conn.release();
         if (error) {
           return res.send(500).send({
             error: error,
-            response: null,
+            listaDeUsuarios: null,
           });
         }
         res.status(201).send({
-          mensagem: "O sorteio foi inserido com sucesso.",
+          mensagem: "O participante foi inserido com sucesso.",
           id_user: resultado.insertId,
         });
       }
