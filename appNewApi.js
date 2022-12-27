@@ -2,7 +2,7 @@ const express = require("express");
 const morgan = require("morgan");
 const app = express();
 const bodyParser = require("body-parser");
-const rotaSorteio = require("./routes/sorteio");
+const rotaSorteio = require("./routes/sorteioNewApi");
 
 app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: false })); // apenas dados simples
