@@ -46,14 +46,55 @@ router.post("/", (req, res, next) => {
 
 //Altera nomes
 router.patch("/", (req, res, next) => {
-  res.status(201).send({
-    mensagem: "Usando o PATCH dentro da rota de Sorteios.",
+  mysql.getConnection((error, conn) => {
+    if (error) {
+      return res.status(500).send({ error: error });
+    }
+    conn.query(
+      `
+      UPDATE usuarios
+        SET nome     = ?,
+            email    = ?
+      WHERE user_id  = ?
+      `,
+      [req.body.nome, req.body.email, req.body.user_id],
+      (error, resultado, field) => {
+        conn.release();
+        if (error) {
+          return res.send(500).send({
+            error: error,
+            listaDeUsuarios: null,
+          });
+        }
+        res.status(202).send({
+          mensagem: "O participante foi alterado com sucesso.",
+        });
+      }
+    );
   });
 });
 // Exclui nomes
 router.delete("/", (req, res, next) => {
-  res.status(201).send({
-    mensagem: "Usando o DELETE dentro da rota de Sorteios.",
+  mysql.getConnection((error, conn) => {
+    if (error) {
+      return res.status(500).send({ error: error });
+    }
+    conn.query(
+      `DELETE from usuarios WHERE  user_id=? `,
+      [req.body.user_id],
+      (error, resultado, field) => {
+        conn.release();
+        if (error) {
+          return res.send(500).send({
+            error: error,
+            listaDeUsuarios: null,
+          });
+        }
+        res.status(202).send({
+          mensagem: "O participante foi removido com sucesso.",
+        });
+      }
+    );
   });
 });
 
