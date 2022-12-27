@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const mysql = require("../mysql").pool;
+const mysql = require("../mysqlNewApi").pool;
 //Visualiza nomes
 router.get("/", (req, res, next) => {
   mysql.getConnection((error, conn) => {
