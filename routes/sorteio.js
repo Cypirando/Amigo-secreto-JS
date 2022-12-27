@@ -3,9 +3,6 @@ const router = express.Router();
 const mysql = require("../mysql").pool;
 //Visualiza nomes
 router.get("/", (req, res, next) => {
-  // res.status(200).send({
-  //   mensagem: "Detalhe do Sorteios.",
-  // });
   mysql.getConnection((error, conn) => {
     if (error) {
       return res.status(500).send({ error: error });
@@ -14,6 +11,16 @@ router.get("/", (req, res, next) => {
       if (error) {
         return res.status(500).send({ error: error });
       }
+      // const response = {
+      //   quantidade: resultado.length,
+      //   usuarios: resultado.map((prod) => {
+      //     return {
+      //       user_id: prod.user_id,
+      //       nome: prod.nome,
+      //       email: prod.email
+      //     };
+      //   }),
+      // };
       return res.status(200).send({ listaDeUsuarios: resultado });
     });
   });
