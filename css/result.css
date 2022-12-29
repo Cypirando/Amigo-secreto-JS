@@ -1,0 +1,54 @@
+* {
+  box-sizing: border-box;
+  padding: 0 0.8rem;
+  margin: 0;
+  font-family: Helvetica;
+}
+
+.img-logo img {
+  width: 100%;
+  padding: 0 0;
+  border-radius: 2px;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0 4rem;
+}
+.title h1 {
+  color: rgb(27, 19, 91);
+  background-color: #fff;
+  border-radius: 2px;
+  font-size: 30px;
+  font-family: cursive;
+}
+
+
+.name-sort {
+  display: grid;
+  justify-content: center;
+}
+.caixa {
+  display: grid;
+  gap: 8px;
+  padding: 30px 20px;
+  border-radius: 5px;
+  box-shadow: rgb(219 219 219) 4px 1px 17px -5px;
+  max-width: 350px;
+  min-width: 330px;
+
+}
+.caixa h6 {
+  padding-left: 0;
+}
+.caixa button {
+  color: #fff;
+  border: none;
+  background-color: #428fdc;
+  font-size: 10px;
+  padding: 5px 22px;
+  border-radius: 3px;
+  font-size: 20px;
+  cursor: pointer;
+}

@@ -47,6 +47,7 @@ async function getApi(nomes) {
   }
 }
 async function imprimirNaTela() {
+  
   await getApi(participantes);
 }
 /* -------------------------------- */
