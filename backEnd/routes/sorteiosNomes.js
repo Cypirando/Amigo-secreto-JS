@@ -44,7 +44,7 @@ function mandaNomeEail(destinatario, destinatarioNome, remetenteNome) {
   let info = transport.sendMail({
     from: "secretoamigo338@gmail.com", // sender address
     to: destinatario, // list of receivers
-    subject: "Hello ✔", // Subject line
+    subject: "Amigo Secreto", // Subject line
     text: "Hello wld?or", // plain text body
     html: `<body>
     <header>

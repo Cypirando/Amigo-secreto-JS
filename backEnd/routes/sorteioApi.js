@@ -23,7 +23,7 @@ app.post("/nomes-sortados", (req, res, _next) => {
 
   resultadoDeQuemPegouQuem = api.sortearNomes(participantes);
   
-  res.send(resultadoDeQuemPegouQuem);
+  res.send(participantes);
 });
 
 

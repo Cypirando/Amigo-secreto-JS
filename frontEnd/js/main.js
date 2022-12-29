@@ -1,28 +1,47 @@
+/* -------------ANIMAÇÕES ------*/
+const slidePage = document.querySelector(".slidepage");
+const avancarBtn = document.querySelector(".nextbtn");
+const Voltar = document.querySelector(".prev-1");
+const sortear = document.querySelector(".next-1");
+const prevBtnSec2 = document.querySelector(".prev-2");
+const nextBtnSec2 = document.querySelector(".next-2");
+const progressText = document.querySelectorAll(".step p");
+const progressCheck = document.querySelectorAll(".step .check");
+const bullet = document.querySelectorAll(".step .bullet");
+/******************************************** */
+/**ROTA */
 /* -------------------------------- */
 const rota = "http://localhost:5000/nomes-sortados";
 /* -------------------------------- */
 async function getApi(nomes) {
   try {
     let header = new Headers({
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
     });
     let request = await fetch(rota, {
       method: "POST",
       headers: header,
       body: JSON.stringify({ nomes }),
     });
+    console.log(request)
     request
       .json()
       .then((sorteados) => {
-        // console.log(sorteados);
+        console.log(sorteados)
         // let printTela = document.getElementById("lista-one");
         // printTela.innerHTML = "";
-        // printTela.innerHTML += sorteados.map((i) => {
-        //   console.log("i", i);
-        //   return `<div class="caixa-box name-2"><h3>O sorteio foi enviado no Email.</h3></div>`;
-        // });
+        // printTela.innerHTML += Object.values(sorteados)
+        //   .map(
+        //     (i) =>
+        //       console.log(
+        //         "i",
+        //         i
+        //       )`<div class="caixa-box name-2"><h3>${i.nome}</h3></div>`
+        //   )
+        //   .join(" ");
       })
-      .catch((err) => console.log("err=", err));
+      .catch();
   } catch (error) {
     console.log("eror");
   }
@@ -31,112 +50,127 @@ async function imprimirNaTela() {
   await getApi(participantes);
 }
 /* -------------------------------- */
+let max = 4;
+let current = 1;
+
 let nomeDoSorteio = document.getElementById("input-one");
 let printNomeDoSorteio = document.getElementById("nome-sorteio");
-let btnAncancar = document.getElementById("btn-avancar");
-btnAncancar.addEventListener("click", () => {
-  document.getElementById("meio").style.display = "grid";
-  document.getElementById("inicio").style.display = "none";
-  printNomeDoSorteio.innerHTML = nomeDoSorteio.value;nome-sorteado
+
+avancarBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  slidePage.style.marginLeft = "-25%";
+  bullet[current - 1].classList.add("active");
+  progressCheck[current - 1].classList.add("active");
+  current += 1;
+
+  printNomeDoSorteio.innerHTML = nomeDoSorteio.value;
   limparInputOne();
 });
+
+sortear.addEventListener("click", (e) => {
+  e.preventDefault();
+  slidePage.style.marginLeft = "-50%";
+  bullet[current - 1].classList.add("active");
+  progressCheck[current - 1].classList.add("active");
+  current += 1;
+});
+
+nextBtnSec2.addEventListener("click", (e) => {
+  e.preventDefault();
+  slidePage.style.marginLeft = "-75%";
+  bullet[current - 1].classList.add("active");
+  progressCheck[current - 1].classList.add("active");
+  current += 1;
+});
+
+Voltar.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  slidePage.style.marginLeft = "0%";
+  bullet[current - 2].classList.remove("active");
+  progressCheck[current - 2].classList.remove("active");
+  current -= 1;
+});
+
+prevBtnSec2.addEventListener("click", (e) => {
+  e.preventDefault();
+  slidePage.style.marginLeft = "-25%";
+  bullet[current - 2].classList.remove("active");
+  progressCheck[current - 2].classList.remove("active");
+  current -= 1;
+});
+/********************************************************* */
+
+/**limpar Inputs */
 function limparInputOne() {
   let input = document.getElementById("input-one");
   input.value = "";
 }
-/* -------------------------------- */
-let btnAdicionar = document.querySelector("#adicionar");
+/********************************************************* */
+function limparInput() {
+  let limpaInputNome = document.getElementById("input-dados");
+  limpaInputNome.value = "";
+  limpaInputNome.focus();
+}
+/******************************************************* */
+function limparInputEmail() {
+  let limpaInputEmail = document.getElementById("input-email");
+  limpaInputEmail.value = "";
+  limpaInputEmail.focus();
+}
+/******************************************************* */
+/**Excluir */
+
+function excuir(a) {
+  participantes.splice(a, 1);
+  renderizar();
+}
+/******************************************************** */
+
+const btnAdicionar = document.querySelector("#adicionar");
 let participantes = [];
 let cadastrados = [];
 let linhas = 0;
-btnAdicionar.addEventListener("click", () => {
+
+console.log(participantes);
+
+btnAdicionar.addEventListener("click", (e) => {
+  e.preventDefault();
   let input = document.querySelector("#input-dados").value;
-  let imputEmail = document.querySelector("#input-email").value
-  // function validateEmail(imputEmail) {
-  //   var re = /\S+@\S+\.\S+/;
-  //   re.test(imputEmail)
-  //   return true;
-  // }
-  if (input !== "" && participantes.indexOf(input) == -1 && imputEmail!== "" ) {
-    participantes.push({ nome: input, email: imputEmail });
+  let inputemail = document.querySelector("#input-email").value;
+
+  if (input !== "" && participantes.indexOf(input) == -1) {
+    participantes.push({ nome: input, email: inputemail });
 
     cadastrados.push({ name: input, id: cadastrados.length });
 
     renderizar();
     limparInput();
+    limparInputEmail();
     console.log("participantes", participantes);
     console.log("cadastrados", cadastrados);
   } else if (participantes.indexOf(input) != -1) {
     alert("O nome já existe");
   } else {
-    alert("Insira o Nome e Email dos Participantes");
+    alert("Insira o Nome dos Participantes");
   }
 });
-document.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") {
-    btnAdicionar.click();
-  }
-});
-function limparInput() {
-  let limpaInput = document.getElementById("input-dados");
-  let LimparEmail = document.getElementById("input-email")
-  limpaInput.value = "";
-  LimparEmail.value = "";
-  limpaInput.focus();
-  // LimparEmail.focus();
-}
-/* -------------------------------- */
-let quadroLista = document.querySelector("#quadro-lista");
+
 function renderizar() {
+  let quadroLista = document.querySelector("#quadro-lista");
   quadroLista.innerHTML = "";
   quadroLista.innerHTML += participantes
     .map(
       (e, index) => `
-    <div class="nomes-sorteio">
-    ${e.nome} <input type="button" onclick="excuir(${index})" name="botao-ok" value="X"> <br /><br />
+    <div class="nomes-sorteio"> 
+    ${e.nome} : ${e.email} <input type="button" onclick="excuir(${index})" name="botao-ok" value="X"> <br /><br />
     </div>
     `
     )
     .join("");
 }
-function excuir(a) {
-  participantes.splice(a, 1);
-  renderizar();
-}
-/* -------------------------------- */
-let btnSortear = document.querySelector("#btn-sortear");
+const btnSortear = document.getElementById("btn-sortear");
 btnSortear.addEventListener("click", () => {
-  if (participantes.length >= 2) {
-    imprimirNaTela();
-    document.getElementById("meio").style.display = "none";
-    document.getElementById("final").style.display = "grid";
-  } else if (participantes.length == 1) {
-    alert("[ERRO] Não dar para jogar sozinho");
-  } else {
-    alert("[ERRO] Insira os Participantes");
-  }
+  console.log("oi cliquei");
+  imprimirNaTela(participantes)
 });
-/* -------------------------------- */
-const lerArq = document.querySelector('input[type="file"]');
-lerArq.addEventListener(
-  "change",
-  () => {
-    console.log(lerArq.files);
-    const reader = new FileReader();
-    reader.onload = () => {
-      const lines = reader.result.split("\r\n").map((line) => line);
-      lines.forEach((nomes) => participantes.push(nomes));
-      linhas = lines.length;
-      document.getElementById("modal").style.display = "grid";
-      renderizar();
-    };
-    reader.readAsText(lerArq.files[0]);
-  },
-  false
-);
-/* -------------------------------- */
-let voltarInicio = document.getElementById("btn-atualizar");
-voltarInicio.addEventListener("click", () => {
-  window.location.reload();
-});
-/* --------------16/12/2022------------------ */
