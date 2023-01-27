@@ -3,7 +3,8 @@ const morgan = require("morgan");
 const app = express();
 const bodyParser = require("body-parser");
 const rotaSorteio = require("./routes/sorteioNewApi");
-
+var cors = require("cors");
+app.use(cors());
 app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: false })); // apenas dados simples
 app.use(bodyParser.json()); // json de entrada no body
